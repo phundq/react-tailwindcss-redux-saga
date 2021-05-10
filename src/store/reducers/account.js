@@ -1,4 +1,4 @@
-import { TYPES } from '../actions'
+// import { TYPES } from '../actions'
 
 const INIT_STATE = {
   error: '',
@@ -9,8 +9,14 @@ const INIT_STATE = {
 
 export default function (state = INIT_STATE, action) {
   switch (action.type) {
-    case TYPES.LOGIN_SUCCESS:
-      return { ...state, loginFail: false, user: action.payload.user }
+    case 'TYPES.LOGIN_SUCCESS':
+      return {
+        ...state,
+        loginFail: false,
+        user: { username: action.payload.user.username }
+      }
+    case 'TYPES.LOGIN_FAIL':
+      return { ...state, loginFail: true, error: action.payload.message }
     default:
       return state
   }
