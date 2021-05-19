@@ -12,7 +12,7 @@ const Header = () => (
       <div className="w-full py-2 text-lg flex justify-between items-center flex-wrap">
         <Link to={PathUrl.HOME}>
           <span className="flex items-center">
-            <Icons.Home className="pr-1" />
+            <Icons.HiOutlineHome className="pr-1 text-3xl" />
             React & Tailwindcss
           </span>
         </Link>

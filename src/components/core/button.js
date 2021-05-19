@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = props => (
   <button
-    onClick={props.onClick}
+    {...props}
     className={`outline-none focus:outline-none py-1 px-2 rounded-md ${props?.className}`}
   >
     {props.children}
