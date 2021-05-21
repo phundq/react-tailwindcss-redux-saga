@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { RiAccountPinCircleFill } from 'react-icons/ri'
 import { connect } from 'react-redux'
 import Button from '../../components/core/button'
+import Icons from '../../components/core/icon'
 import InputField from '../../components/core/input-field'
 import actions from '../../store/actions'
 
@@ -10,9 +10,12 @@ const Login = props => {
   const [password, setPassword] = useState('')
 
   const handlerClickLogin = () => {
-    console.log(username, password)
     const payload = { username, password }
-    props.login(payload)
+    props.login(payload, (success, data) => {
+      if (success) {
+        props.history.push('/')
+      }
+    })
   }
 
   function handlerInputChange(e) {
@@ -27,7 +30,7 @@ const Login = props => {
     <div className="h-full w-full flex items-center justify-center flex-row">
       <div className="absolute top-1/4 flex flex-col bg-white ring-1 ring-opacity-60 ring-gray-200  shadow-xl rounded-md p-5 mx-8">
         <span className="flex  items-center justify-center text-gray-700 text-2xl">
-          <RiAccountPinCircleFill className="text-4xl" />
+          <Icons.RiAccountPinCircleFill className="text-4xl" />
           Login
         </span>
         <div className="md:w-80 my-7">
